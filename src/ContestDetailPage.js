@@ -6,11 +6,10 @@ const ContestDetailPage = (props) => {
     var selectedContestId = props.match.params.id;
     var selectedContest = null;
 
-    selectedContest = location.state.contests.filter(data => {
+    selectedContest = location.state.filter(data => {
         return (data.id == selectedContestId)
     });
 
-   //console.log(selectedContest)
     return (
         <div>
             <h1>Details of the contest</h1>

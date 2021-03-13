@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { Link} from 'react-router-dom';
-
 import axios from 'axios';
 import './App.css';
 
+import PaginationApp from './Pagination'
 import CanvasJSReact from './assets/canvasjs.react'
 //var CanvasJS = CanvasJSReact.CanvasJS;
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
@@ -52,63 +51,17 @@ class HomePage extends Component {
 
     let ICPCList = this.state.contests.filter(i => {
       return i.type === "ICPC";
-    }).map(i => {
-      return (
-        <Link to={
-            {
-                pathname: `contest/${i.id}`,
-                state: this.state,
-            }}
-          key={i.id} >
-          <p>{i.name} - {i.type}</p>
-        </Link>
-      )
     })
 
     let CFList = this.state.contests.filter(i => {
       return i.type === "CF";
-    }).map(i => {
-      return (
-        <Link to={
-            {
-                pathname: `contest/${i.id}`,
-                state: this.state,
-            }}
-          key={i.id} >
-          <p>{i.name} - {i.type}</p>
-        </Link>
-      )
     })
 
     let SearchList = this.state.contests.filter(data => {
       return data.name.toLowerCase().includes(this.state.search.toLowerCase())
-    }).map(i => {
-      return (
-        <Link to={
-            {
-                pathname: `contest/${i.id}`,
-                state: this.state,
-            }}
-          key={i.id} >
-          <p>{i.name} - {i.type}</p>
-        </Link>
-      )
     })
 
-    const AllContestsList = this.state.contests.map(i => {
-      return (
-        <Link to={
-            {
-                pathname: `contest/${i.id}`,
-                state: this.state,
-            }}
-          key={i.id} >
-          <p>{i.name} - {i.type}</p>
-        </Link>
-      )
-    })
-
-    const displayContests = () => {
+    let displayContests = () => {
       if (this.state.search !== '')
         return SearchList
       if (this.state.filter === 'icpc')
@@ -116,7 +69,7 @@ class HomePage extends Component {
       else if (this.state.filter === 'cf')
         return CFList
       else
-        return AllContestsList
+        return this.state.contests
     }
 
     var graph = (
@@ -183,7 +136,7 @@ class HomePage extends Component {
 
     return (
       <div className="App">
-        {/* <header className="App-header"> */}
+
         <div className="row">
 
           <div className="column">
@@ -196,7 +149,11 @@ class HomePage extends Component {
 
             <input type="text" placeholder="Enter item to be searched" onChange={(e) => this.searchSpace(e)} />
 
-            {displayContests()}
+            {
+              (displayContests().length !== 0) ?
+                <PaginationApp data={displayContests()} />
+                : null
+            }
           </div>
 
 
@@ -215,8 +172,6 @@ class HomePage extends Component {
           </div>
 
         </div>
-
-        {/* </header> */}
       </div>
     );
   }

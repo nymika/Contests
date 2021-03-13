@@ -11,7 +11,7 @@ class App extends Component {
       <BrowserRouter>
 
         <Route path="/" exact component={HomePage} />
-        <Route path="/contest/:id" component={ContestDetailPage}/>
+        <Route path="/contest/:id" component={ContestDetailPage} />
 
       </BrowserRouter>
     );
