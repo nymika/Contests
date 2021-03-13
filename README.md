@@ -26,4 +26,4 @@ You will also see any lint errors in the console.
 
 ## Deployment
 
-This app has been deployed here: [https://coding-contests.vercel.app/](https://coding-contests.vercel.app/)
+This app has been deployed here: [https://contests-nymika.vercel.app/](https://contests-nymika.vercel.app/)
