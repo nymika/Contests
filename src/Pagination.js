@@ -9,7 +9,7 @@ class PaginationApp extends Component {
         this.state = {
             offset: 0,
             data: this.props.data,
-            perPage: 10,
+            perPage: this.props.perPage,
             currentPage: 0,
         };
         this.handlePageClick = this
@@ -27,8 +27,12 @@ class PaginationApp extends Component {
                         pathname: `contest/${i.id}`,
                         state: data,
                     }}
-                    key={i.id} >
-                    <p>{i.name} - {i.type}</p>
+                    key={i.id} 
+                    style={{ textDecoration: 'none' }}>
+                    <div className="contestRow">
+                        <p className="contestName">{i.name}</p>
+                        <p className="contestType">Type - {i.type}</p>
+                    </div>
                 </Link>
             )
         })
@@ -36,7 +40,7 @@ class PaginationApp extends Component {
         this.setState({
             pageCount: Math.ceil(data.length / this.state.perPage),
 
-            postData:postData,
+            postData: postData,
         })
 
     }
@@ -73,6 +77,12 @@ class PaginationApp extends Component {
                 data: this.props.data
             }, () => this.receivedData())
         }
+
+        if (this.props.perPage !== prevprops.perPage) {
+            this.setState({
+                perPage: this.props.perPage
+            }, () => this.receivedData())
+        }
     }
 
 
@@ -81,7 +91,8 @@ class PaginationApp extends Component {
         return (
 
             <div>
-                <input type="number" min="1" value={this.state.perPage} onChange={(e) => this.changePageSize(e)}></input>
+                {/* <input className="pagesizebox" type="number" min="1" value={this.state.perPage} onChange={(e) => this.changePageSize(e)}></input> */}
+
                 {this.state.postData}
                 <ReactPaginate
                     previousLabel={"prev"}

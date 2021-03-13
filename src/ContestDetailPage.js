@@ -11,13 +11,14 @@ const ContestDetailPage = (props) => {
     });
 
     return (
-        <div>
+        <div className="detailsBox">
             <h1>Details of the contest</h1>
-            <p>ID               - {selectedContest[0].id}</p>
-            <p>NAME             - {selectedContest[0].name}</p>
-            <p>TYPE             - {selectedContest[0].type}</p>
-            <p>PHASE            - {selectedContest[0].phase}</p>
-            <p>DURATION SECONDS - {selectedContest[0].durationSeconds}</p>
+            <hr />
+            <p><b>ID</b> - {selectedContest[0].id}</p>
+            <p><b>NAME</b>           - {selectedContest[0].name}</p>
+            <p><b>TYPE</b>            - {selectedContest[0].type}</p>
+            <p><b>PHASE</b>            - {selectedContest[0].phase}</p>
+            <p><b>DURATION SECONDS</b> - {selectedContest[0].durationSeconds}</p>
         </div>
     )
 

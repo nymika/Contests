@@ -10,8 +10,18 @@ class App extends Component {
     return (
       <BrowserRouter>
 
+        <div className="headerbox">
+          <h1>List of contests</h1>
+        </div>
+        <hr />
+
         <Route path="/" exact component={HomePage} />
         <Route path="/contest/:id" component={ContestDetailPage} />
+
+        <div className="footerbox">
+          <hr />
+          <p>Created by Nymika Pasnoori</p>
+        </div>
 
       </BrowserRouter>
     );

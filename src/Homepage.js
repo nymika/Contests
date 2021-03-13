@@ -13,12 +13,19 @@ class HomePage extends Component {
     contests: [],
     search: '',
     filter: 'all',
-    filterGraph: 'all'
+    filterGraph: 'all',
+    perPage: 6,
   }
 
   searchSpace = (event) => {
     this.setState({
       search: event.target.value
+    })
+  }
+
+  changePageSize = (event) => {
+    this.setState({
+      perPage: event.target.value
     })
   }
 
@@ -82,7 +89,7 @@ class HomePage extends Component {
         exportEnabled: true,
         theme: "light2", //"light1", "dark1", "dark2"
         title: {
-          text: 'Duration vs Contest id'
+          text: 'Duration vs Contest Name'
         },
         axisY: {
           includeZero: true
@@ -135,31 +142,33 @@ class HomePage extends Component {
     }
 
     return (
-      <div className="App">
-
+      <div>
         <div className="row">
 
-          <div className="column">
+          <div className="column-left">
 
-            <select value={this.state.filter} onChange={(e) => this.filterData(e)}>
+            <input className="searchbox" type="text" placeholder="Search contest names" onChange={(e) => this.searchSpace(e)} />
+
+            <select className="dropdown" value={this.state.filter} onChange={(e) => this.filterData(e)}>
               <option value="icpc">ICPC</option>
               <option value="cf">CF</option>
               <option value="all">All</option>
             </select>
 
-            <input type="text" placeholder="Enter item to be searched" onChange={(e) => this.searchSpace(e)} />
+            <p className="perpage" >Rows per Page</p>
+            <input className="pagesizebox" type="number" min="1" value={this.state.perPage} onChange={(e) => this.changePageSize(e)}></input>
 
             {
               (displayContests().length !== 0) ?
-                <PaginationApp data={displayContests()} />
+                <PaginationApp data={displayContests()} perPage={this.state.perPage} />
                 : null
             }
           </div>
 
 
-          <div className="column">
+          <div className="column-right">
 
-            <select value={this.state.filterGraph} onChange={(e) => this.filterGraph(e)}>
+            <select className="dropdown" value={this.state.filterGraph} onChange={(e) => this.filterGraph(e)}>
               <option value="icpc">ICPC</option>
               <option value="cf">CF</option>
               <option value="notcompletedcontests">Not completed</option>
@@ -172,6 +181,7 @@ class HomePage extends Component {
           </div>
 
         </div>
+
       </div>
     );
   }

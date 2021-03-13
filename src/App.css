@@ -1,55 +1,125 @@
-.App {
-  text-align: center;
-}
+body {
+  color : #333333;
+  font-family : arial;
+  /* text-align: center; */
+  /* margin : 0 auto; */
+  padding : 0 30px;
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
+  /* display : flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  min-height : 100vh; */
+}
+
+/* border: 1px solid black; */
+
+.headerbox {
+  display: flex;
+  /* border: 1px solid black; */
+  background-color: #2e3f63;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.headerbox h1 {
+  text-align: left;
+  width: 50%;
+  /* border: 1px solid black; */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.footerbox {
+  color : #888888;
+  text-align : center;
+  left: 40%;
+  bottom: 0;
+  /* border: 1px solid black; */
 }
 
 .row {
   display: flex;
 }
 
-.column {
+.column-left {
   flex: 50%;
-  /* border: 2px solid white; */
+  /* border: 2px solid yellow; */
+}
+
+.column-right {
+  flex: 46%;
+  padding-left: 20px;
+}
+
+.dropdown {
+  width: 20%;
+  height: 35px;
+  border : 1px solid #cccccc;
+  /* padding : 8px; */
+}
+
+.searchbox {
+  float: left;
+  width: 350px;
+  height: 30px;
+  /* border-radius: 20%; */
+}
+
+.pagesizebox {
+  width: 5%;
+  height: 30px;
+  float: right
+}
+
+.perpage {
+  float: right;
+  font-size: smaller;
+}
+
+.contestRow {
+  border-color: gray;
+  border-bottom-style: dotted ;
+  border-width: thin;
+  /* display: flex; */
+}
+
+.contestLink {
+  text-decoration: none;
+}
+
+.contestName {
+  color: blue;
+  text-align: left;
+  margin-top: 20px;
+  /* flex: 50%; */
+  /* border: 1px solid green; */
+}
+
+.contestType {
+  color: black;
+  margin:0;
+  font-size: smaller;
+  background-color: #ffcc80;
+  width: 20%;
+  height: 20px;
+  border-radius: 15%;
+  text-align: center
+  /* border: 1px solid blue; */
 }
 
 .graph {
   height: 100%;
   width: 90%;
 }
+
+.detailsBox {
+  /* border: 1px solid red; */
+  /* margin: 0 20%; */
+  padding: 9%;
+  width:fit-content;
+  text-align: center;
+  align-content: center;
+  border-radius: 15%;
+  background-color: rgb(226, 217, 217);
+}
+
+/* PAGINATION */
 
 .pagination {
   margin: 15px auto;
