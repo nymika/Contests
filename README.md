@@ -26,4 +26,4 @@ You will also see any lint errors in the console.
 
 ## Deployment
 
-This app has been deployed here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+This app has been deployed here: [https://coding-contests.vercel.app/](https://coding-contests.vercel.app/)
