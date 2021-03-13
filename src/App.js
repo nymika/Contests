@@ -11,7 +11,7 @@ class App extends Component {
       <BrowserRouter>
 
         <div className="headerbox">
-          <h1>List of contests</h1>
+          <h1>LIST OF CONTESTS</h1>
         </div>
         <hr />
 
